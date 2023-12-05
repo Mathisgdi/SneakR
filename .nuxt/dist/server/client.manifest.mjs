@@ -1,0 +1,1 @@
+export { default } from "file:///Users/mathisghidotti/Documents/Epitech%20digital/Projet/SneakR/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
