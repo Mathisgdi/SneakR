@@ -58,13 +58,21 @@ async function signUp() {
             <div class="error">
                 <p v-if="errorMsg" class="text-red-500 text-xs italic">{{ errorMsg }}</p>
             </div>
+            <div>
+                <p v-if="successMsg" class="text-green-500 text-xs italic">{{ successMsg }}</p>
+            </div>
             <div class="flex items-center justify-between">
                 <button
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="submit"
                 >
-                    Register
+                    SignUp
                 </button>
+            </div>
+            <div>
+                <p class="text-gray-700 text-xs mt-3">Already have an account?
+                <NuxtLink to="/login" class="text-blue-500 hover:text-blue-700 text-xs italic">Login</NuxtLink>
+            </p>
             </div>
             
         </form>
