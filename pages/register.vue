@@ -21,6 +21,11 @@ async function signUp() {
     errorMsg.value = error.message;
   }
 }
+
+definePageMeta({
+  layout: 'empty'
+})
+
 </script>
 
 <template>
