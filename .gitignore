@@ -26,3 +26,6 @@ logs
 # Build files
 data.json
 data_api.tsv
+loginV1.vue
+registerV1.vue
+```
