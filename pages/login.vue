@@ -41,7 +41,7 @@ definePageMeta({
       <NuxtLink to="/">
         <img
           class="mx-auto h-20 w-auto"
-          src="../public/img/SneakerLogo.avif"
+          src="../img/SneakerLogo.avif"
           alt="Workflow"
         />
         <h2

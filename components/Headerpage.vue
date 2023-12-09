@@ -1,14 +1,13 @@
 <script setup>
 const user = useSupabaseUser();
-console.log(user.value);
 </script>
 
 <template>
-  <header class="flex justify-between items-center p-4 ">
+  <header class="flex justify-between items-center p-3 ">
     <NuxtLink to="/">
       <img
         class="ml-10 h-10 w-auto"
-        src="../public/img/SneakerLogo.avif"
+        src="../img/SneakerLogo.avif"
         alt="Workflow"
       />
     </NuxtLink>

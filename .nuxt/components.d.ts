@@ -3,6 +3,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     'Headerpage': typeof import("../components/Headerpage.vue")['default']
     'Carte': typeof import("../components/carte.vue")['default']
+    'Carteid': typeof import("../components/carteid.vue")['default']
     'UAccordion': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
     'UAlert': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
     'UAvatar': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue")['default']
@@ -72,6 +73,7 @@ declare module 'vue' {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyHeaderpage': typeof import("../components/Headerpage.vue")['default']
     'LazyCarte': typeof import("../components/carte.vue")['default']
+    'LazyCarteid': typeof import("../components/carteid.vue")['default']
     'LazyUAccordion': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
     'LazyUAlert': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
     'LazyUAvatar': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue")['default']
@@ -144,6 +146,7 @@ declare module 'vue' {
 
 export const Headerpage: typeof import("../components/Headerpage.vue")['default']
 export const Carte: typeof import("../components/carte.vue")['default']
+export const Carteid: typeof import("../components/carteid.vue")['default']
 export const UAccordion: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
 export const UAlert: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
 export const UAvatar: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue")['default']
@@ -213,6 +216,7 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyHeaderpage: typeof import("../components/Headerpage.vue")['default']
 export const LazyCarte: typeof import("../components/carte.vue")['default']
+export const LazyCarteid: typeof import("../components/carteid.vue")['default']
 export const LazyUAccordion: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
 export const LazyUAlert: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
 export const LazyUAvatar: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue")['default']

@@ -4,5 +4,6 @@
         
     </Headerpage>
     <slot />
+    
   </div>
 </template>

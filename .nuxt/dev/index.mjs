@@ -104,7 +104,8 @@ const _inlineRuntimeConfig = {
           "/register",
           "/",
           "index",
-          "/img/*"
+          "/img/*",
+          "/detail/*"
         ]
       },
       "cookieName": "sb",
