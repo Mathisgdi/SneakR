@@ -7,9 +7,12 @@ const props = defineProps(["Chaussure"]);
     <div
       class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"
     >
-
-
       <div class="mt-4 px-5 pb-5">
+        <img
+          class="object-cover"
+          :src="Chaussure['image.small']"
+          alt="image of sneaker"
+        />
         
         <a href="#">
           <h5 class="text-xl tracking-tight text-slate-900">
@@ -18,7 +21,6 @@ const props = defineProps(["Chaussure"]);
         </a>
         <div class="mt-2 mb-5 flex items-center justify-between">
           <p class="text-3xl font-bold text-slate-900">
-             
               {{ Chaussure.estimatedMarketValue }}$
           </p>
         </div>

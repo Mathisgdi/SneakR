@@ -29,7 +29,8 @@ const { data: SneakR } = await useAsyncData("SneakR", async () => {
     .from("SneakR")
     .select("*")
     .order("brand")
-    .range(page.value, page.value + itemperpage.value);
+    // .range(page.value, page.value + itemperpage.value);
+    .range(20000,20050)
 
   return data;
 });

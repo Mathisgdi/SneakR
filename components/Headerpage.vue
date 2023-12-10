@@ -4,14 +4,16 @@ const user = useSupabaseUser();
 
 <template>
   <header class="flex justify-between items-center p-3 ">
-    <NuxtLink to="/">
+    <a href="/">
+    <!-- <NuxtLink to="/"> J'ai enlevé le nuxt link car sinon la page ne se reload pas-->
+      
       <img
         class="ml-10 h-10 w-auto"
         src="../img/SneakerLogo.avif"
         alt="Workflow"
       />
-    </NuxtLink>
-
+    <!-- </NuxtLink> -->
+  </a>
     <div class="flex items-center">
       <button
         v-if="user?.value"
