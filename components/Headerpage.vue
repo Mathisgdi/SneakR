@@ -21,7 +21,7 @@ const user = useSupabaseUser();
       >
         <NuxtLink to="/profil">Profil</NuxtLink>
       </button>
-      <button v-else class="px-4 py-2 bg-blue-500 text-white">
+      <button v-else class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-500">
         <NuxtLink to="/login">Login</NuxtLink>
       </button>
     </div>

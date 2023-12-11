@@ -1,17 +1,11 @@
 <template>
   <div>
-    <div>
-      <!-- <div>
-        <p>test</p>
-        {{ Chaussure.brand }}
-      </div>
-      <carteid /> -->
-    </div>
-    <div>
-      <NuxtPage />
+    <NuxtPage />
+    <section>
+      <div>
         <carteid v-for="Chaussure in SneakR" :Chaussure="Chaussure" />
-      <!-- <pre>{{ route }}</pre> -->
-    </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -21,14 +15,6 @@ const route = useRoute();
 const idpage = ref(null);
 const idpagenumber = route.params.id;
 
-// const { data: SneakR } = await useAsyncData("SneakR", async () => {
-//   const { data } = await client
-//     .from("SneakR")
-//     .select("*")
-//     .eq("id", route.params._id);
-
-//   return data;
-// });
 
 const { data: SneakR } = await useAsyncData("SneakR", async () => {
   const { data } = await client
