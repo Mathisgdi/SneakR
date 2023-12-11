@@ -9,11 +9,7 @@
     </div>
     <div>
       <NuxtPage />
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         <carteid v-for="Chaussure in SneakR" :Chaussure="Chaussure" />
-        <p>toto</p>
-      </div>
       <!-- <pre>{{ route }}</pre> -->
     </div>
   </div>
