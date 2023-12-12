@@ -103,7 +103,7 @@ const _inlineRuntimeConfig = {
           "/login",
           "/register",
           "/",
-          "index",
+          "/index",
           "/img/*",
           "/detail/*"
         ]

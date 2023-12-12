@@ -13,7 +13,7 @@ function toggleClick() {
 
 <template>
   <div
-    class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"
+    class="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"
   >
     <!-- <NuxtLink to="detail"> -->
     <!-- <NuxtLink :to="`/detail/${Chaussure.id}`"> -->

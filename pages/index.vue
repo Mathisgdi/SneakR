@@ -1,38 +1,46 @@
 <template>
   <div>
     <NuxtPage />
+    <search />
     <!-- permet d'afficher le contenu de la page, ce base sur le dossier page -->
     <section>
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       >
         <carte v-for="Chaussure in SneakR" :Chaussure="Chaussure" />
       </div>
     </section>
-    <UPagination
-      :max="5"
+    <UPagination class="flex justify-center items-center ml-5 mb-3 "
+      :page-count="100"
       v-model="page"
-      :page-count="5"
-      :total="items.length"
+      :total= "49214"
+      :max="5"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-const page = ref(0);
-const itemperpage = ref(10);
-const items = ref(Array(55));
+
+const page = ref(1);
+// const items = ref([]);
+const itemperpage = 100;
 const client = useSupabaseClient();
 
 const { data: SneakR } = await useAsyncData("SneakR", async () => {
   const { data } = await client
     .from("SneakR")
     .select("*")
-    .order("brand")
-    // .range(page.value, page.value + itemperpage.value);
-    .range(0,50)
-
+    .range(page.value * itemperpage - itemperpage, page.value * itemperpage -1);
   return data;
 });
 console.log(SneakR.value);
+watch(page, async  (newpage) => {
+  const { data: SneakR } = await useAsyncData("SneakR", async () => {
+  const { data } = await client
+    .from("SneakR")
+    .select("*")
+    .range(page.value * itemperpage - itemperpage, page.value * itemperpage -1);
+    window.scrollTo(0, 0)
+  return data;
+});})
 </script>

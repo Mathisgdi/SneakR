@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         '/login',
         '/register',
         '/',
-        'index',
+        '/index',
         '/img/*',
         '/detail/*',
 

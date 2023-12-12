@@ -6,7 +6,6 @@ const user = useSupabaseUser();
   <header class="flex justify-between items-center p-3 ">
     <a href="/">
     <!-- <NuxtLink to="/"> J'ai enlevé le nuxt link car sinon la page ne se reload pas-->
-      
       <img
         class="ml-10 h-10 w-auto"
         src="../img/SneakerLogo.avif"

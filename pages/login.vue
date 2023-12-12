@@ -21,7 +21,6 @@ async function signIn() {
   }
 }
 
-
 definePageMeta({
   layout: 'empty'
 })
@@ -30,14 +29,11 @@ definePageMeta({
 </script>
 
 
-
-
 <template>
   <div
     class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
   >
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <!-- <NuxtImg src="/img/SneakerLogo.avif" placeholder="logo" /> -->
       <NuxtLink to="/">
         <img
           class="mx-auto h-20 w-auto"
@@ -66,7 +62,7 @@ definePageMeta({
               name="email"
               type="email"
               autocomplete="email"
-              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: pl-3 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: pl-3 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Email address"
               v-model="email"
             />
@@ -94,7 +90,7 @@ definePageMeta({
               name="password"
               type="password"
               autocomplete="current-password"
-              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: pl-3 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: pl-3 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Password"
               v-model="password"
             />
