@@ -11,7 +11,7 @@
       </div>
     </section>
     <UPagination class="flex justify-center items-center ml-5 mb-3 "
-      :page-count="100"
+      :page-count="24"
       v-model="page"
       :total= "49214"
       :max="5"
@@ -20,10 +20,8 @@
 </template>
 
 <script setup lang="ts">
-
 const page = ref(1);
-// const items = ref([]);
-const itemperpage = 100;
+const itemperpage = 24;
 const client = useSupabaseClient();
 
 const { data: SneakR } = await useAsyncData("SneakR", async () => {

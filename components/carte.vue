@@ -47,7 +47,7 @@ function toggleClick() {
 
         <button
           class="inline-flex items-center justify-center w-10 h-10 mr-2 text-indigo-100 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-indigo-600"
-          :class="{ 'bg-indigo-600': isClicked, 'bg-slate-300': !isClicked }" 
+          :class="{ 'bg-indigo-600': isClicked, 'bg-slate-300': !isClicked }"
           @click="toggleClick"
         >
           <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">

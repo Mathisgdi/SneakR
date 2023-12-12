@@ -1,8 +1,8 @@
 <template>
     <div>
-    <Headerpage> 
+    <headerPage> 
         
-    </Headerpage>
+    </headerPage>
     <slot />
     
   </div>

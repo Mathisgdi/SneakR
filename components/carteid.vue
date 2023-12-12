@@ -1,5 +1,14 @@
 <script setup>
 const props = defineProps(["Chaussure"]);
+const isActive = ref(false);
+const isClicked = ref(false);
+
+function toggleHeart() {
+  isActive.value = !isActive.value;
+}
+function toggleClick() {
+  isClicked.value = !isClicked.value;
+}
 </script>
 
 <template>
@@ -49,7 +58,46 @@ const props = defineProps(["Chaussure"]);
         >
           Buy Now
         </a>
+        
+        <button
+          class="ml-5 inline-flex items-center justify-center w-10 h-10 mr-2 text-indigo-100 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-indigo-600"
+          :class="{ 'bg-indigo-600': isClicked, 'bg-slate-300': !isClicked }"
+          @click="toggleClick"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+            <path
+              d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+              clip-rule="evenodd"
+              fill-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <div>
+        <button class="heart"
+          @click="toggleHeart"
+          :class="{ 'is-active': isActive }">
+          
+        </button>
+      </div>
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
+    no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+
+  &.is-active {
+    transition-duration: 1s;
+    background-position: -2800px 0;
+  }
+}
+</style>
