@@ -2,12 +2,25 @@
 const props = defineProps(["Chaussure"]);
 const isActive = ref(false);
 const isClicked = ref(false);
+const user = useSupabaseUser();
 
 function toggleHeart() {
-  isActive.value = !isActive.value;
+  if (!user.value) {
+    alert("You must be login to add to whislist");
+    return;
+  }
+  else {
+    isActive.value = !isActive.value;
+  }
 }
 function toggleClick() {
-  isClicked.value = !isClicked.value;
+  if (!user.value) {
+    alert("You must be login to add to collection");
+    return;
+  }
+  else {
+    isClicked.value = !isClicked.value;
+  }
 }
 </script>
 
