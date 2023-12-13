@@ -1,35 +1,13 @@
-<script setup>
-const props = defineProps(["Chaussure"]);
-const isActive = ref(false);
-const isClicked = ref(false);
-const user = useSupabaseUser();
-
-function toggleHeart() {
-  if (!user.value) {
-    alert("You must be login to add to whislist");
-    return;
-  }
-  else {
-    isActive.value = !isActive.value;
-  }
-}
-function toggleClick() {
-  if (!user.value) {
-    alert("You must be login to add to collection");
-    return;
-  }
-  else {
-    isClicked.value = !isClicked.value;
-  }
-}
-</script>
-
 <template>
-  <div class="grid sm:grid-cols-1 lg:grid-cols-2 ">
+  <div class="grid sm:grid-cols-1 lg:grid-cols-2">
     <div>
-      <img class="bg-gray-200" :src="Chaussure['image.small']" alt="image of sneaker" />
+      <img
+        class="bg-gray-200"
+        :src="Chaussure['image.small']"
+        alt="image of sneaker"
+      />
     </div>
-    <div class="p-5 ">
+    <div class="p-5">
       <div>
         <h5 class="font-black">Full name</h5>
         <p>{{ Chaussure.name }}</p>
@@ -57,7 +35,7 @@ function toggleClick() {
       <br />
       <div>
         <h5 class="font-black">Estimated market value</h5>
-        <p>{{ Chaussure.estimatedMarketValue }}$</p>
+        <p>${{ Chaussure.estimatedMarketValue }}</p>
       </div>
       <br />
       <div>
@@ -71,7 +49,7 @@ function toggleClick() {
         >
           Buy Now
         </a>
-        
+
         <button
           class="ml-5 inline-flex items-center justify-center w-10 h-10 mr-2 text-indigo-100 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-indigo-600"
           :class="{ 'bg-indigo-600': isClicked, 'bg-slate-300': !isClicked }"
@@ -86,17 +64,39 @@ function toggleClick() {
           </svg>
         </button>
         <div>
-        <button class="heart"
-          @click="toggleHeart"
-          :class="{ 'is-active': isActive }">
-          
-        </button>
-      </div>
+          <button
+            class="heart"
+            @click="toggleHeart"
+            :class="{ 'is-active': isActive }"
+          ></button>
+        </div>
       </div>
     </div>
   </div>
 </template>
+<script setup>
+const props = defineProps(["Chaussure"]);
+const isActive = ref(false);
+const isClicked = ref(false);
+const user = useSupabaseUser();
 
+function toggleHeart() {
+  if (!user.value) {
+    alert("You must be login to add to whislist");
+    return;
+  } else {
+    isActive.value = !isActive.value;
+  }
+}
+function toggleClick() {
+  if (!user.value) {
+    alert("You must be login to add to collection");
+    return;
+  } else {
+    isClicked.value = !isClicked.value;
+  }
+}
+</script>
 <style scoped>
 .heart {
   width: 100px;

@@ -1,24 +1,3 @@
-<script setup>
-const client = useSupabaseClient();
-const email = ref(null);
-const successMsg = ref(null);
-
-async function resetPassword (){
-  const { data, error } = await client.auth.resetPasswordForEmail(email.value, {
-    redirectTo: 'http://localhost:3000/updatePassword',
-    successMsg: 'Check your email for the password reset link.',
-
-  })
-}
-
-
-definePageMeta({
-  layout: 'empty'
-})
-
-
-</script>
-
 
 <template>
   <div
@@ -63,6 +42,10 @@ definePageMeta({
           <p v-if="successMsg" class="text-green-500 text-xs italic">
             {{ successMsg }}
           </p>
+          <p v-if="errorMsg" class="text-red-500 text-xs italic">
+            {{ errorMsg }}
+          </p>
+
         </div>
         <div>
           <button
@@ -86,3 +69,38 @@ definePageMeta({
     </div>
   </div>
 </template>
+
+<script setup>
+const client = useSupabaseClient();
+const email = ref(null);
+const successMsg = ref(null);
+const errorMsg = ref(null);
+
+async function resetPassword (){
+  try {
+    const { data, error } = await client.auth.resetPasswordForEmail(email.value, {
+    redirectTo: 'http://localhost:3000/updatePassword',
+
+    })
+    if (error) throw error
+    else{
+      successMsg.value = 'Go check your email for the password reset link.'}
+  } catch (error) {
+    errorMsg.value = error.message;
+    console.log(error.message);
+  }
+  
+}
+
+// const { data, error } = await client.auth.resetPasswordForEmail(email.value, {
+//     redirectTo: 'http://localhost:3000/updatePassword',
+//     successMsg: 'Check your email for the password reset link.',
+
+//   })
+
+definePageMeta({
+  layout: 'empty'
+})
+
+
+</script>

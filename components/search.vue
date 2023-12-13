@@ -1,3 +1,17 @@
+
+<template>
+  <UInput
+    v-model="q"
+    name="q"
+    placeholder="Search..."
+    icon="i-heroicons-magnifying-glass-20-solid"
+    autocomplete="off"
+    :ui="{ icon: { trailing: { pointer: '' } } }"
+    class="flex items-center justify-center w-[80%] mx-auto"
+  >
+  </UInput>
+</template>
+
 <script>
 const searchcontent = ref("");
 
@@ -13,17 +27,3 @@ async function search() {
 }
 
 </script>
-
-<template>
-  <div class="flex justify-center items-center">
-    <input
-      v-model="searchcontent"
-      type="text"
-      placeholder="Search a sneaker"
-      class="flex items-center rounded-md"
-    />
-    <button @click="search">
-      <img src="../img/iconSearch.svg" alt="search icon" class="w-9" />
-    </button>
-  </div>
-</template>

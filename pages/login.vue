@@ -1,36 +1,3 @@
-<script setup>
-const client = useSupabaseClient();
-const router = useRouter();
-const email = ref("");
-const password = ref(null);
-const errorMsg = ref(null);
-
-async function signIn() {
-  try {
-    const { error } = await client.auth.signInWithPassword({
-      email: email.value,
-      password: password.value,
-    });
-    if (error) {
-      throw error;
-    } else {
-      router.push("/");
-    }
-  } catch (error) {
-    errorMsg.value = error.message;
-  }
-}
-
-
-
-definePageMeta({
-  layout: 'empty'
-})
-
-
-</script>
-
-
 <template>
   <div
     class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
@@ -83,7 +50,6 @@ definePageMeta({
                 to="/resetPassword"
                 class="font-semibold text-indigo-600 hover:text-indigo-500"
                 >Forgot password?</NuxtLink
-              
               >
             </div>
           </div>
@@ -125,3 +91,31 @@ definePageMeta({
     </div>
   </div>
 </template>
+
+<script setup>
+const client = useSupabaseClient();
+const router = useRouter();
+const email = ref("");
+const password = ref(null);
+const errorMsg = ref(null);
+
+async function signIn() {
+  try {
+    const { error } = await client.auth.signInWithPassword({
+      email: email.value,
+      password: password.value,
+    });
+    if (error) {
+      throw error;
+    } else {
+      router.push("/");
+    }
+  } catch (error) {
+    errorMsg.value = error.message;
+  }
+}
+
+definePageMeta({
+  layout: "empty",
+});
+</script>

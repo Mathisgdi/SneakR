@@ -1,29 +1,4 @@
-<script setup>
-const client = useSupabaseClient();
-const router = useRouter();
-const Newpassword = ref(null);
-const errorMsg = ref(null);
-const confirmPassword = ref(null);
 
-
-async function resetPassword (){
-    console.log(Newpassword.value)
-    console.log(confirmPassword.value)
-    if (Newpassword.value === confirmPassword.value){
-    const { data, error } = await client.auth.updateUser({password: Newpassword.value})
-    router.push("/login");
-  } else {
-    errorMsg.value = "Password doesn't match"
-  }
-}
-
-
-definePageMeta({
-  layout: 'empty'
-})
-
-
-</script>
 
 
 <template>
@@ -111,3 +86,30 @@ definePageMeta({
     </div>
   </div>
 </template>
+
+<script setup>
+const client = useSupabaseClient();
+const router = useRouter();
+const Newpassword = ref(null);
+const errorMsg = ref(null);
+const confirmPassword = ref(null);
+
+
+async function resetPassword (){
+    console.log(Newpassword.value)
+    console.log(confirmPassword.value)
+    if (Newpassword.value === confirmPassword.value){
+    const { data, error } = await client.auth.updateUser({password: Newpassword.value})
+    router.push("/login");
+  } else {
+    errorMsg.value = "Password doesn't match"
+  }
+}
+
+
+definePageMeta({
+  layout: 'empty'
+})
+
+
+</script>

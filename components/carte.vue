@@ -1,35 +1,7 @@
-<script setup>
-const props = defineProps(["Chaussure"]);
-const isActive = ref(false);
-const isClicked = ref(false);
-const user = useSupabaseUser();
-
-function toggleHeart() {
-  if (!user.value) {
-    alert("You must be login to add to whislist");
-    return;
-  }
-  else {
-    isActive.value = !isActive.value;
-  }
-}
-function toggleClick() {
-  if (!user.value) {
-    alert("You must be login to add to collection");
-    return;
-  }
-  else {
-    isClicked.value = !isClicked.value;
-  }
-}
-</script>
-
 <template>
   <div
     class="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"
   >
-    <!-- <NuxtLink to="detail"> -->
-    <!-- <NuxtLink :to="`/detail/${Chaussure.id}`"> -->
     <a
       class="relative mx-3 mt-3 flex h-80 overflow-hidden rounded-xl"
       :href="`/detail/${Chaussure.id}`"
@@ -50,11 +22,14 @@ function toggleClick() {
     <div class="mt-4 px-5 pb-5">
       <div class="mt-2 mb-5 flex items-center justify-between">
         <p class="text-3xl font-bold text-slate-900">
-          {{ Chaussure.estimatedMarketValue }}$
+          ${{ Chaussure.estimatedMarketValue }}
         </p>
         <div
           class="heart"
-          @click="toggleHeart"
+          @click="
+            toggleHeart();
+            addToCollection();
+          "
           :class="{ 'is-active': isActive }"
         ></div>
 
@@ -81,6 +56,82 @@ function toggleClick() {
     </div>
   </div>
 </template>
+<script setup>
+const props = defineProps(["Chaussure"]);
+const isActive = ref(false);
+const isClicked = ref(false);
+const user = useSupabaseUser();
+const client = useSupabaseClient();
+// const { user: updatedUser2, error: updatedError2 } = await client.auth.updateUser(user.value.id, {
+//   user_metadata: {}
+// })
+
+// let collectionUser = [user.value.user_metadata.collection];
+// console.log(collectionUser);
+// console.log(user.value.user_metadata);
+
+// async function toggleHeart() {
+//   if (!user.value) {
+//     alert("You must be login to add to whislist");
+//     return;
+//   } else {
+//     isActive.value = !isActive.value;
+//     addToCollection(props.Chaussure.id);
+//     console.log("collection du user: ", collectionUser);
+//     const { data, error } = await client.auth.updateUser({
+//       data: { collection: collectionUser },
+//     });
+//     const {
+//   data: { user },
+// } = await client.auth.getUser()
+// let metadata = user.user_metadata
+// console.log(metadata)
+
+const collection = 'collection'
+async function toggleHeart() {
+  if (!user.value) {
+    alert("You must be login to add to whislist");
+    return;
+  } else {
+  let collectionUser = user.value.user_metadata.collection;
+    isActive.value = !isActive.value;
+    console.log("id chausure ", props.Chaussure.id);
+    collectionUser.push(props.Chaussure.id);
+    const { data, error } = await client.auth.updateUser({
+      data: { collection: collectionUser },
+      
+    });
+    // addToCollection(props.Chaussure.id);
+    console.log("collection du user: ", collectionUser);
+  }
+}
+
+// function addToCollection(id) {
+//   // console.log("collection du user dans la fonction: ");
+//   // console.log(collectionUser);
+//   collectionUser.push(id);
+//   // console.log("collection du user dans la fonction 2: ");
+//   // console.log(collectionUser);
+//   return collectionUser;
+// }
+
+
+const wishlist = 'wishlist' 
+async function toggleClick() {
+  if (!user.value) {
+    alert("You must be login to add to collection");
+    return;
+  } else {
+    isClicked.value = !isClicked.value;
+  let wishlistUser = user.value.user_metadata.wishlist;
+    wishlistUser.push(props.Chaussure.id);
+    const { data, error } = await client.auth.updateUser({
+      data: { wishlist: collectionUser },
+    });
+    console.log("wishlist du user: ", wishlistUser);
+  }
+}
+</script>
 
 <style scoped>
 .heart {

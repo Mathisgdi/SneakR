@@ -1,33 +1,3 @@
-<script setup>
-const client = useSupabaseClient();
-const email = ref("");
-const password = ref(null);
-const errorMsg = ref(null);
-const successMsg = ref(null);
-
-async function signUp() {
-  console.log("signUp function called");
-  try {
-    const { data, error } = await client.auth.signUp({
-      email: email.value,
-      password: password.value,
-    });
-    if (error) {
-      throw error;
-    } else {
-      successMsg.value = "Check your email to confirm your account";
-    }
-  } catch (error) {
-    errorMsg.value = error.message;
-  }
-}
-
-definePageMeta({
-  layout: 'empty'
-})
-
-</script>
-
 <template>
   <div
     class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
@@ -36,7 +6,7 @@ definePageMeta({
       <NuxtLink to="/">
         <img
           class="mx-auto h-20 w-auto"
-          src="../public/img/SneakerLogo.avif"
+          src="../img/SneakerLogo.avif"
           alt="Workflow"
         />
         <h2
@@ -81,7 +51,7 @@ definePageMeta({
               name="password"
               type="password"
               autocomplete="current-password"
-              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: pl-3 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder: pl-3  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Password"
               v-model="password"
             />
@@ -90,6 +60,9 @@ definePageMeta({
         <div>
           <p v-if="errorMsg" class="text-red-500 text-xs italic">
             {{ errorMsg }}
+          </p>
+          <p v-if="successMsg" class="text-green-500 text-xs italic">
+            {{ successMsg }}
           </p>
         </div>
         <div>
@@ -113,3 +86,33 @@ definePageMeta({
     </div>
   </div>
 </template>
+
+<script setup>
+const client = useSupabaseClient();
+const email = ref("");
+const password = ref(null);
+const errorMsg = ref(null);
+const successMsg = ref(null);
+
+async function signUp() {
+  console.log("signUp function called");
+  try {
+    const { data, error } = await client.auth.signUp({
+      email: email.value,
+      password: password.value,
+    });
+    if (error) {
+      throw error;
+    } else {
+      successMsg.value = "Check your email to confirm your account";
+    }
+  } catch (error) {
+    errorMsg.value = error.message;
+  }
+}
+
+definePageMeta({
+  layout: 'empty'
+})
+
+</script>
