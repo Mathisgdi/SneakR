@@ -1,4 +1,8 @@
 <template>
+  <title>
+    SneakR
+  </title>
+  
   <div>
     <NuxtPage />
     <search />

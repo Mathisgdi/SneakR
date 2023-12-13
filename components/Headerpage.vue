@@ -1,6 +1,6 @@
 <template>
   <header class="flex justify-between items-center p-3">
-    <div class="flex flex-row items-center gap-10">
+    <div class="flex flex-row items-center gap-5 sm:gap-5 md:gap-5 lg:gap-10 ">
     <a href="/">
       <!-- <NuxtLink to="/"> J'ai enlevé le nuxt link car sinon la page ne se reload pas-->
       <img
